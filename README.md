@@ -1,24 +1,68 @@
-# Hospital Readmission Prediction (Example)
+# 🏥 Patient Readmission Risk Prediction using AI
 
-**Author:** Irene Ouko
+## 📘 Overview
+This project applies the AI Development Workflow to a real-world healthcare problem — predicting whether a patient is likely to be readmitted within 30 days after discharge.
+The goal is to help hospitals optimize care, reduce readmission rates, and improve patient outcomes using a machine learning model trained on synthetic patient data.
+## 🎯 Objectives
+- Predict the probability of 30-day readmission using patient demographics and medical history.
+- Support hospital decision-making for follow-up care.
+- Demonstrate an end-to-end AI workflow — from problem definition to deployment
+## 👩‍⚕️ Stakeholders
+- Hospital Administration: To allocate resources efficiently and monitor performance.
+- Medical Staff: To identify high-risk patients for targeted care.
+## 📊 Key Performance Indicator (KPI)
+Primary KPI: Area Under the ROC Curve (AUC) — to measure how well the model distinguishes between readmitted and non-readmitted patients.
 
-This repository contains example code for the AI assignment: predicting 30-day hospital readmission risk.
-The code is illustrative and intended for educational purposes. It includes:
+## 🧠 AI Workflow
+1. Problem Definition – Identify the goal and stakeholders.
+2. Data Collection – Synthetic data simulating hospital records.
+3. Preprocessing – Cleaning, encoding, scaling, and splitting.
+4. Model Development – Logistic Regression model for interpretability.
+5. Evaluation – Metrics: Precision, Recall, F1, AUC.
+6. Deployment – Exported model ready for API or web integration.
 
-- data/: synthetic data generator and small sample dataset
-- src/: preprocessing, training, evaluation, and a deployment stub
-- requirements.txt: Python package requirements
-- LICENSE: MIT
-- .gitignore
+## 🧩 Repository Structure
+readmission_ai_repo/
+│
+├── data/
+│   └── sample_readmission.csv        # Synthetic dataset
+│
+├── models/
+│   └── readmit_model.joblib          # Saved trained model
+│
+├── src/
+│   ├── train.py                      # Model training script
+│   ├── evaluate.py                   # Evaluation script
+│   └── utils.py                      # Helper functions
+│
+├── requirements.txt                  # Dependencies
+└── README.md                         # Project documentation
 
-## Quick start
-1. Create a Python environment (recommended): `python -m venv venv && source venv/bin/activate`
-2. Install requirements: `pip install -r requirements.txt`
-3. Generate synthetic data: `python data/generate_synthetic.py --out data/sample_readmission.csv`
-4. Preprocess & train: `python src/train.py --data_path data/sample_readmission.csv --model_out models/readmit_model.joblib`
-5. Evaluate: `python src/evaluate.py --data_path data/sample_readmission.csv --model_path models/readmit_model.joblib`
-6. (Optional) Run deployment stub: `python src/deploy_stub.py` and POST JSON to `/predict`
+## ⚙️ Setup Instructions
+### Create a virtual environment
+python -m venv venv
+source venv/Scripts/activate   # On Windows
+### Install dependencies
+pip install -r requirements.txt
+### Run training
+python -m src.train
+### Evaluate model
+python -m src.evaluate
+## 📈 Example Output
+Validation AUC: 0.4235
+[[353 136]
+ [ 86 424]]
+Precision: 0.7571
+Recall: 0.8314
+F1-score: 0.7925
+AUC: 0.8375
 
-## Notes
-- This is a template. Replace synthetic data with your real dataset and update feature lists accordingly.
-- The code is well-commented to help you adapt it for your project submission.
+## 🧰 Technologies Used
+- Python 3.10+
+- scikit-learn
+- pandas / numpy
+- joblib
+- matplotlib
+
+
+
